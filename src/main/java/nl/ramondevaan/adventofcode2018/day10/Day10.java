@@ -4,12 +4,12 @@ import lombok.Builder;
 
 import java.awt.*;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 @Builder
 public class Day10 {
     private final List<Star> stars;
+    private final LettersParser lettersParser;
 
     public String puzzle1() {
         List<Point> positions = initialPositions();
@@ -53,10 +53,7 @@ public class Day10 {
     }
 
     private String readCode(List<Point> positions) {
-        print(positions);
-        System.err.println("Please, read this for me:");
-        Scanner s = new Scanner(System.in);
-        return s.nextLine();
+        return read(positions);
     }
 
     private void propagate(List<Point> origin, List<Point> propgated, boolean plus) {
@@ -89,18 +86,22 @@ public class Day10 {
         );
     }
 
-    private static void print(List<Point> points) {
+    private String read(List<Point> points) {
         int startX = points.stream().mapToInt(p -> p.x).min().orElseThrow();
         int startY = points.stream().mapToInt(p -> p.y).min().orElseThrow();
 
         int endX = Math.min(points.stream().mapToInt(p -> p.x).max().orElseThrow() + 1, startX + 100);
         int endY = Math.min(points.stream().mapToInt(p -> p.y).max().orElseThrow() + 1, startY + 30);
 
-        for (int y = startY; y < endY; y++) {
-            for (int x = startX; x < endX; x++) {
-                System.out.print(points.contains(new Point(x, y)) ? '#' : ' ');
-            }
-            System.out.println();
+        int width = endX - startX;
+        int height = endY - startY;
+
+        boolean[][] screen = new boolean[height][width];
+
+        for (final var point : points) {
+            screen[point.y - startY][point.x - startX] = true;
         }
+
+        return lettersParser.parse(screen);
     }
 }

@@ -1,5 +1,6 @@
 package nl.ramondevaan.adventofcode2018.day10;
 
+import nl.ramondevaan.adventofcode2018.util.LetterParser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +8,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,9 +17,12 @@ class Day10Test {
 
     @BeforeEach
     void setUp() throws URISyntaxException, IOException {
+        final var parser = new LetterParser();
+        final var letters = parser.parse(Day10.class.getResource("/day_10_letters.txt"));
         StarParser starParser = new StarParser();
         day10 = Day10.builder()
                      .stars(starParser.parse(Files.lines(Path.of(getClass().getResource("/day10.txt").toURI()))))
+            .lettersParser(new LettersParser(letters))
                      .build();
     }
 
