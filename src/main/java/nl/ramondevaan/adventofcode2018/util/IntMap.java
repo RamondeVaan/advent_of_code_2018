@@ -1,6 +1,7 @@
 package nl.ramondevaan.adventofcode2018.util;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -135,6 +136,31 @@ public class IntMap {
     }
 
     return builder;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = Objects.hash(rows, columns, size);
+    for (int row = 0; row < rows; row++) {
+      result = 31 * result + Arrays.hashCode(map[row]);
+    }
+    return result;
+  }
+
+  @Override
+  public boolean equals(final Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    final IntMap intMap = (IntMap) o;
+    if (!(rows == intMap.rows && columns == intMap.columns && size == intMap.size)) {
+      return false;
+    }
+    for (int row = 0; row < rows; row++) {
+      if (!Arrays.equals(map[row], intMap.map[row])) {
+        return false;
+      }
+    }
+    return true;
   }
 
   public static Builder builder(int rows, int columns) {
