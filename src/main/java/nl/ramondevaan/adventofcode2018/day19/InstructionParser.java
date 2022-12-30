@@ -4,8 +4,6 @@ import nl.ramondevaan.adventofcode2018.day19.instruction.*;
 import nl.ramondevaan.adventofcode2018.util.Parser;
 import nl.ramondevaan.adventofcode2018.util.StringIteratorParser;
 
-import java.util.List;
-
 public class InstructionParser implements Parser<String, Instruction> {
   @Override
   public Instruction parse(final String toParse) {
