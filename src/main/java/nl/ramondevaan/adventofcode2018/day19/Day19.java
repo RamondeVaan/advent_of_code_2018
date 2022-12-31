@@ -1,7 +1,9 @@
 package nl.ramondevaan.adventofcode2018.day19;
 
 import com.google.common.math.IntMath;
-import nl.ramondevaan.adventofcode2018.day19.instruction.Instruction;
+import nl.ramondevaan.adventofcode2018.util.instruction.IPRegisterParser;
+import nl.ramondevaan.adventofcode2018.util.instruction.Instruction;
+import nl.ramondevaan.adventofcode2018.util.instruction.InstructionParser;
 
 import java.util.HashMap;
 import java.util.List;

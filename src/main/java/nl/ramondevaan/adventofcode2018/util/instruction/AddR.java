@@ -1,4 +1,4 @@
-package nl.ramondevaan.adventofcode2018.day19.instruction;
+package nl.ramondevaan.adventofcode2018.util.instruction;
 
 public class AddR extends Instruction {
   public AddR(final int a, final int b, final int c) {

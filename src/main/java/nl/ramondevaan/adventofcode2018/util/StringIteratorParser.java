@@ -34,6 +34,10 @@ public class StringIteratorParser {
     return iterator.current();
   }
 
+  public char next() {
+    return iterator.next();
+  }
+
   public boolean tryConsume(final char[] chars) {
     for (final var expected : chars) {
       if (iterator.current() != expected) {
@@ -111,10 +115,10 @@ public class StringIteratorParser {
 
   public String parseString() {
     final var builder = new StringBuilder();
-    builder.append(iterator.current());
 
-    while (iterator.next() != CharacterIterator.DONE && Character.isAlphabetic(iterator.current())) {
+    while (iterator.current() != CharacterIterator.DONE && Character.isAlphabetic(iterator.current())) {
       builder.append(iterator.current());
+      iterator.next();
     }
 
     return builder.toString();

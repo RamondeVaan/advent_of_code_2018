@@ -1,4 +1,4 @@
-package nl.ramondevaan.adventofcode2018.day19.instruction;
+package nl.ramondevaan.adventofcode2018.util.instruction;
 
 public class GtRI extends Instruction {
   public GtRI(final int a, final int b, final int c) {

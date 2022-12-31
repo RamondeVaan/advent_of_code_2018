@@ -1,4 +1,4 @@
-package nl.ramondevaan.adventofcode2018.day19.instruction;
+package nl.ramondevaan.adventofcode2018.util.instruction;
 
 public class GtIR extends Instruction {
   public GtIR(final int a, final int b, final int c) {

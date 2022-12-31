@@ -1,4 +1,4 @@
-package nl.ramondevaan.adventofcode2018.day19;
+package nl.ramondevaan.adventofcode2018.util.instruction;
 
 import nl.ramondevaan.adventofcode2018.util.Parser;
 import nl.ramondevaan.adventofcode2018.util.StringIteratorParser;
