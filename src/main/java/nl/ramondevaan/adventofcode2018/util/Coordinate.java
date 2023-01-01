@@ -2,11 +2,13 @@ package nl.ramondevaan.adventofcode2018.util;
 
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class Coordinate {
   public final int row;
   public final int column;

@@ -34,8 +34,11 @@ public class IntMap {
   }
 
   public boolean contains(Coordinate coordinate) {
-    return coordinate.row() >= 0 && coordinate.row() < rows
-        && coordinate.column() >= 0 && coordinate.column() < columns;
+    return contains(coordinate.row, coordinate.column);
+  }
+
+  public boolean contains(final int row, final int column) {
+    return row >= 0 && row < rows && column >= 0 && column < columns;
   }
 
   public int rows() {
